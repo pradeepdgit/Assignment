@@ -15,7 +15,7 @@ class UniversitiesAPI: API {
     typealias ResponseObject = UniversitiesAPIResponse
     weak var dataRequest: TADataRequest?
     
-    var headers: [String: Any] = ["Content-Type": "application/json"]
+    var headers: [String: String] = ["Content-Type": "application/json"]
     var method: TAHTTPMethod  = .get
     var parameters: [String: Any] = ["country": "United+Kingdom"]
 

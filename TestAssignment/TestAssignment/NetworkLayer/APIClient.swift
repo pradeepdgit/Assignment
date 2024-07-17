@@ -4,38 +4,43 @@ import Foundation
 let tokenHeader = "Bearer "
 
 protocol APIClientSupporter: HTTPStatusCodeHandling {
-    func makeRequest<T: API>(api: T, completion: @escaping (_ response: T.ResponseObject?, _ statusCode: APIClientError) -> Void)
+    func loadRequest<T: API>(api: T) async throws -> T.ResponseObject?
 }
 
-
 public struct APIClient: APIClientSupporter {
-    func makeRequest<T>(api: T, completion: @escaping (T.ResponseObject?, APIClientError) -> Void) where T : API {
+    
+    var urlSession: URLSession
+    
+    init(urlSession: URLSession = .shared) {
+        self.urlSession = urlSession
+    }
+    
+    func loadRequest<T: API>(api: T) async throws -> T.ResponseObject? {
         
-        AF.request(api.finalURL,
-                   method: api.method,
-                   parameters: api.method == .get ? nil: api.parameters,
-                   encoding: api.jsonEncodingType ,
-                   headers: api.getHeaders(),
-                   interceptor: nil,
-                   requestModifier: nil).responseJSON { (response: DataResponse<Any, TAAFError>) in
-            switch response.result {
-                case .success:
-                    let statusCode = (response.response?.statusCode)!
-                    
-                    if self.isSuccessStatus(code: statusCode) {
-                        //Parse the response and send it to respective controller or class using completion block
-                        guard let responseData = response.data else {
-                            completion(nil, self.httpStatus(code: statusCode))
-                            return
-                        }
-                        let lresponse = T.ResponseObject(responsedata: responseData)
-                        completion(lresponse,  self.httpStatus(code: statusCode))
-                    } else {
-                        completion(nil, self.httpStatus(code: statusCode))
-                    }
-                case .failure:
-                    completion(nil, self.httpStatus(code: response.response?.statusCode ?? 0))
+        return try await withCheckedThrowingContinuation { continuation in
+            
+            var request: URLRequest!
+            do {
+                request = try api.createRequest(api: api)
+            } catch {
+                continuation.resume(throwing: APIClientError.failedToMakeRequest)
             }
+            
+            urlSession.dataTask(with: request) { (data, response, error) in
+                
+                if let httpResponse = response as? HTTPURLResponse {
+                    guard error == nil,
+                          let responseData = data else {
+                        continuation.resume(throwing: httpStatus(code: httpResponse.statusCode))
+                        return
+                    }
+                    
+                    let parsedResponse = T.ResponseObject(responsedata: responseData)
+                    continuation.resume(with: .success(parsedResponse))
+                    return
+                }
+                continuation.resume(throwing: APIClientError.unknown)
+            }.resume()
         }
     }
 }

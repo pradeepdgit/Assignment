@@ -25,7 +25,7 @@ protocol API {
     var finalURL: String { get }
     var method: TAHTTPMethod { get set }
     var parameters: [String: Any] { get set }
-    var headers: [String: Any] { get set }
+    var headers: [String: String] { get set }
     var paramsAsData: Data? { get set }
         
     func getAPIPath() -> String
@@ -69,7 +69,7 @@ extension API {
     
     func getHeaders() -> TAHTTPHeaders? {
         let httpsheaders = headers.map { (arg0) -> HTTPHeader in
-            return HTTPHeader(name: arg0.key, value: arg0.value as! String)
+            return HTTPHeader(name: arg0.key, value: arg0.value )
         }
         
         if httpsheaders.isEmpty {
@@ -77,5 +77,14 @@ extension API {
         }
         
         return HTTPHeaders(httpsheaders)
+    }
+    
+    func createRequest<T: API>(api: T) throws -> URLRequest {
+        var urlRequest = try URLRequest(url: api.finalURL, method: api.method)
+        urlRequest.httpBody = api.method == .post ? api.paramsAsData : nil
+        if let headers = getHeaders() {
+            urlRequest.headers = headers
+        }
+        return urlRequest
     }
 }
