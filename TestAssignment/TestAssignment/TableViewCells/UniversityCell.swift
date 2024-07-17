@@ -2,7 +2,7 @@
 //  UniversityListCell.swift
 //  TestAssignment
 //
-//  Created by Wonderland on 2021-10-03.
+//  Created by Pradeepkumar on 2021-10-03.
 //
 
 import Foundation

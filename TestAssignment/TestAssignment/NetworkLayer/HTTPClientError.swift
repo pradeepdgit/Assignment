@@ -2,20 +2,20 @@
 //  APIClientError.swift
 //  TestAssignment
 //
-//  Created by Wonderland on 2021-10-03.
+//  Created by Pradeepkumar on 2021-10-03.
 //
 
 enum APIClientError {
-    case noHTTPResponse
     case success
-    case clientError
     case badRequest
     case unauthorized
-    case emailUnverifiedOrBadUserID
-    case pathnotFound
-    case socialProfileMissingEmail
-    case socialProfileConflictingEmail
-    case badPasswordOrDuplicateEmail
+    case badGateway
+//    case emailUnverifiedOrBadUserID
+//    case pathnotFound
+//    case socialProfileMissingEmail
+//    case socialProfileConflictingEmail
+//    case badPasswordOrDuplicateEmail
     case serverError
+    case serviceUnavailable
     case unknown
 }

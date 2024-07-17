@@ -2,11 +2,11 @@
 //  Response.swift
 //  TestAssignment
 //
-//  Created by Wonderland on 2021-10-03.
+//  Created by Pradeepkumar on 2021-10-03.
 //
 
 import Foundation
 
-protocol Response: HTTPStatusCodeHandling {
+protocol Response {
     init(responsedata: Data)
 }

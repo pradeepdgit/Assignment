@@ -18,24 +18,24 @@ public struct APIClient: APIClientSupporter {
                    headers: api.getHeaders(),
                    interceptor: nil,
                    requestModifier: nil).responseJSON { (response: DataResponse<Any, TAAFError>) in
-                    switch response.result {
-                    case .success:
-                        let statusCode = (response.response?.statusCode)!
-                        
-                        if self.isSuccessStatus(statusCode: statusCode) {
-                            //Parse the response and send it to respective controller or class using completion block
-                            guard let responseData = response.data else {
-                                completion(nil, self.httpStatus(code: statusCode))
-                                return
-                            }
-                            let lresponse = T.ResponseObject(responsedata: responseData)
-                            completion(lresponse,  self.httpStatus(code: statusCode))
-                        } else {
+            switch response.result {
+                case .success:
+                    let statusCode = (response.response?.statusCode)!
+                    
+                    if self.isSuccessStatus(code: statusCode) {
+                        //Parse the response and send it to respective controller or class using completion block
+                        guard let responseData = response.data else {
                             completion(nil, self.httpStatus(code: statusCode))
+                            return
                         }
-                    case .failure:
-                        completion(nil, self.httpStatus(code: response.response?.statusCode ?? 0))
+                        let lresponse = T.ResponseObject(responsedata: responseData)
+                        completion(lresponse,  self.httpStatus(code: statusCode))
+                    } else {
+                        completion(nil, self.httpStatus(code: statusCode))
                     }
-                   }
+                case .failure:
+                    completion(nil, self.httpStatus(code: response.response?.statusCode ?? 0))
+            }
+        }
     }
 }
