@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Alamofire
 
 #if DEBUG
 let environment = APIEnvironment.development
@@ -14,14 +13,18 @@ let environment = APIEnvironment.development
 let environment = APIEnvironment.production
 #endif
 
-typealias TAHTTPMethod = HTTPMethod // TA- TestAssignment
-typealias TAParameterEncoding = ParameterEncoding
-typealias TADataResponse = DataResponse
-typealias TADataRequest = DataRequest
-typealias TAAFError = AFError
-typealias TAHTTPHeaders = HTTPHeaders
-typealias TAHTTPHeader = HTTPHeader
-typealias TAURLEncoding = URLEncoding
+public enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case patch = "PATCH"
+    case delete = "DELETE"
+}
+
+struct APIHeader {
+    static var kContentType = "Content-Type"
+    static var contentTypeValue = "application/json"
+}
 
 protocol API {
     associatedtype ResponseObject: Response
@@ -29,7 +32,7 @@ protocol API {
     
     var baseUrl: String { get }
     var finalURL: String { get }
-    var method: TAHTTPMethod { get set }
+    var method: HTTPMethod { get set }
     var parameters: [String: Any] { get set }
     var headers: [String: String] { get set }
     var paramsAsData: Data? { get set }
@@ -40,9 +43,7 @@ protocol API {
 extension API {
     
     var baseUrl: String { return environment.baseURL() }
-//    public var jsonEncodingType: ParameterEncoding { return URLEncoding.httpBody }
-    var jsonEncodingType: ParameterEncoding { return JSONEncoding.default }
-    
+        
     var paramsAsData: Data? {
         do {
             let paramData = try JSONSerialization.data(withJSONObject: parameters)
@@ -56,7 +57,7 @@ extension API {
     
     var finalURL: String {
         var paramStr: String? = ""
-        if parameters.isEmpty == false && method == TAHTTPMethod.get {
+        if parameters.isEmpty == false && method == HTTPMethod.get {
             paramStr = "?"
             let keys = parameters.keys
             
@@ -73,24 +74,14 @@ extension API {
         return baseUrl + getAPIPath() + paramStr!
     }
     
-    func getHeaders() -> TAHTTPHeaders? {
-        let httpsheaders = headers.map { (arg0) -> HTTPHeader in
-            return HTTPHeader(name: arg0.key, value: arg0.value )
-        }
-        
-        if httpsheaders.isEmpty {
+    func createRequest<T: API>(api: T) throws -> URLRequest? {
+        guard let url = api.finalURL.asUrl else {
             return nil
         }
-        
-        return HTTPHeaders(httpsheaders)
-    }
-    
-    func createRequest<T: API>(api: T) throws -> URLRequest {
-        var urlRequest = try URLRequest(url: api.finalURL, method: api.method)
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = api.method.rawValue
         urlRequest.httpBody = api.method == .post ? api.paramsAsData : nil
-        if let headers = getHeaders() {
-            urlRequest.headers = headers
-        }
+        urlRequest.allHTTPHeaderFields = headers
         return urlRequest
     }
 }

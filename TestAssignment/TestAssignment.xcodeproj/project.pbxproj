@@ -18,6 +18,7 @@
 		27F9EF782C4EC7DB00F6CAC5 /* ViewControllerSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF772C4EC7DB00F6CAC5 /* ViewControllerSnapshot.swift */; };
 		27F9EF7B2C4EC84900F6CAC5 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 27F9EF7A2C4EC84900F6CAC5 /* InlineSnapshotTesting */; };
 		27F9EF7D2C4EC84900F6CAC5 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 27F9EF7C2C4EC84900F6CAC5 /* SnapshotTesting */; };
+		27F9EF822C4ED2E900F6CAC5 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF7F2C4ED2C200F6CAC5 /* String+Extension.swift */; };
 		AF1BC2DB2709E122009C5698 /* APIDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1BC2DA2709E122009C5698 /* APIDataError.swift */; };
 		AF1BC2E5270A278B009C5698 /* HTTPClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1BC2E4270A278B009C5698 /* HTTPClientError.swift */; };
 		AF80AA4127087C9700842163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80AA4027087C9700842163 /* AppDelegate.swift */; };
@@ -56,6 +57,7 @@
 		27F9EF6B2C48613D00F6CAC5 /* ApiEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEnvironment.swift; sourceTree = "<group>"; };
 		27F9EF742C4EBF9900F6CAC5 /* XCTestCase + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "XCTestCase + Extension.swift"; path = "TestAssignmentTests/XCTestCase + Extension.swift"; sourceTree = SOURCE_ROOT; };
 		27F9EF772C4EC7DB00F6CAC5 /* ViewControllerSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSnapshot.swift; sourceTree = "<group>"; };
+		27F9EF7F2C4ED2C200F6CAC5 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		AF1BC2DA2709E122009C5698 /* APIDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataError.swift; sourceTree = "<group>"; };
 		AF1BC2E0270A0720009C5698 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		AF1BC2E4270A278B009C5698 /* HTTPClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientError.swift; sourceTree = "<group>"; };
@@ -114,6 +116,14 @@
 			path = Snapshots;
 			sourceTree = "<group>";
 		};
+		27F9EF812C4ED2DB00F6CAC5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				27F9EF7F2C4ED2C200F6CAC5 /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		AD31B2BD4BA32A4C8A777977 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,10 +159,11 @@
 				AF80AA4427087C9700842163 /* ViewController.swift */,
 				27F9EF672C483D6500F6CAC5 /* BaseViewController.swift */,
 				AFDE73AC2709C5F3006B7EE3 /* ViewModle */,
-				AFDE739C2709C0E1006B7EE3 /* TableViewCells */,
-				AFDE73A22709C39B006B7EE3 /* Extensions */,
-				AFDE73962709AFAF006B7EE3 /* APIS */,
 				AFDE738D2709A4F4006B7EE3 /* Model */,
+				AFDE739C2709C0E1006B7EE3 /* TableViewCells */,
+				27F9EF812C4ED2DB00F6CAC5 /* Extensions */,
+				AFDE73A22709C39B006B7EE3 /* UI+Extensions */,
+				AFDE73962709AFAF006B7EE3 /* APIS */,
 				AF80AA5427087CF400842163 /* NetworkLayer */,
 				AF80AA4627087C9700842163 /* Main.storyboard */,
 				AF80AA4927087C9D00842163 /* Assets.xcassets */,
@@ -200,14 +211,14 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
-		AFDE73A22709C39B006B7EE3 /* Extensions */ = {
+		AFDE73A22709C39B006B7EE3 /* UI+Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				AFDE73A32709C3C7006B7EE3 /* UITableView+Extension.swift */,
 				AFE46C6C270C07A800B9B38D /* StoryboardInstantiable+UIViewController.swift */,
 				27F9EF692C48435900F6CAC5 /* UIView+Extension.swift */,
 			);
-			path = Extensions;
+			path = "UI+Extensions";
 			sourceTree = "<group>";
 		};
 		AFDE73AC2709C5F3006B7EE3 /* ViewModle */ = {
@@ -370,6 +381,7 @@
 				AFDE73982709AFCB006B7EE3 /* UniversitiesAPI.swift in Sources */,
 				27F9EF662C47053900F6CAC5 /* HTTPStatusCodeHandling.swift in Sources */,
 				AFDE739E2709C101006B7EE3 /* UniversityCell.swift in Sources */,
+				27F9EF822C4ED2E900F6CAC5 /* String+Extension.swift in Sources */,
 				AF80AA4527087C9700842163 /* ViewController.swift in Sources */,
 				27F9EF732C4EAD7C00F6CAC5 /* Response.swift in Sources */,
 				AF1BC2DB2709E122009C5698 /* APIDataError.swift in Sources */,

@@ -12,10 +12,9 @@ class UniversitiesAPI: API {
     var apiClient: APIClientSupporter
     var paramsAsData: Data?
     typealias ResponseObject = UniversitiesAPIResponse
-    weak var dataRequest: TADataRequest?
     
     var headers: [String: String] = ["Content-Type": "application/json"]
-    var method: TAHTTPMethod  = .get
+    var method: HTTPMethod  = .get
     var parameters: [String: Any] = ["country": "United+Kingdom"]
 
     init(apiClient: APIClientSupporter) {
