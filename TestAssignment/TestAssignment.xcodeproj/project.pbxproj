@@ -11,9 +11,15 @@
 		27F9EF682C483D6500F6CAC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF672C483D6500F6CAC5 /* BaseViewController.swift */; };
 		27F9EF6A2C48435900F6CAC5 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF692C48435900F6CAC5 /* UIView+Extension.swift */; };
 		27F9EF6C2C48613D00F6CAC5 /* ApiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF6B2C48613D00F6CAC5 /* ApiEnvironment.swift */; };
+		27F9EF702C4EAD2500F6CAC5 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80AA5527087D1500842163 /* APIClient.swift */; };
+		27F9EF722C4EAD7300F6CAC5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80AA5727087D2D00842163 /* API.swift */; };
+		27F9EF732C4EAD7C00F6CAC5 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1BC2E0270A0720009C5698 /* Response.swift */; };
+		27F9EF752C4EBF9900F6CAC5 /* XCTestCase + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF742C4EBF9900F6CAC5 /* XCTestCase + Extension.swift */; };
+		27F9EF782C4EC7DB00F6CAC5 /* ViewControllerSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF772C4EC7DB00F6CAC5 /* ViewControllerSnapshot.swift */; };
+		27F9EF7B2C4EC84900F6CAC5 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 27F9EF7A2C4EC84900F6CAC5 /* InlineSnapshotTesting */; };
+		27F9EF7D2C4EC84900F6CAC5 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 27F9EF7C2C4EC84900F6CAC5 /* SnapshotTesting */; };
 		54D983ED66DA2F48033D3602 /* Pods_TestAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866CC579060C7C3875E568BD /* Pods_TestAssignment.framework */; };
 		AF1BC2DB2709E122009C5698 /* APIDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1BC2DA2709E122009C5698 /* APIDataError.swift */; };
-		AF1BC2E1270A0720009C5698 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1BC2E0270A0720009C5698 /* Response.swift */; };
 		AF1BC2E5270A278B009C5698 /* HTTPClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1BC2E4270A278B009C5698 /* HTTPClientError.swift */; };
 		AF80AA4127087C9700842163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80AA4027087C9700842163 /* AppDelegate.swift */; };
 		AF80AA4327087C9700842163 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80AA4227087C9700842163 /* SceneDelegate.swift */; };
@@ -21,8 +27,6 @@
 		AF80AA4827087C9700842163 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF80AA4627087C9700842163 /* Main.storyboard */; };
 		AF80AA4A27087C9D00842163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF80AA4927087C9D00842163 /* Assets.xcassets */; };
 		AF80AA4D27087C9D00842163 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF80AA4B27087C9D00842163 /* LaunchScreen.storyboard */; };
-		AF80AA5627087D1500842163 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80AA5527087D1500842163 /* APIClient.swift */; };
-		AF80AA5827087D2D00842163 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80AA5727087D2D00842163 /* API.swift */; };
 		AFDE738F2709A510006B7EE3 /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE738E2709A510006B7EE3 /* University.swift */; };
 		AFDE73982709AFCB006B7EE3 /* UniversitiesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE73972709AFCB006B7EE3 /* UniversitiesAPI.swift */; };
 		AFDE739E2709C101006B7EE3 /* UniversityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE739D2709C101006B7EE3 /* UniversityCell.swift */; };
@@ -30,18 +34,6 @@
 		AFDE73A92709C5B8006B7EE3 /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE73A82709C5B8006B7EE3 /* ViewControllerViewModel.swift */; };
 		AFE46C6D270C07A800B9B38D /* StoryboardInstantiable+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE46C6C270C07A800B9B38D /* StoryboardInstantiable+UIViewController.swift */; };
 		AFE46CA3270C4D1E00B9B38D /* ViewControllerToViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE73BA270B0DCE006B7EE3 /* ViewControllerToViewModelTests.swift */; };
-		AFE46CAD270C502F00B9B38D /* StoryboardInstantiable+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE46C6C270C07A800B9B38D /* StoryboardInstantiable+UIViewController.swift */; };
-		AFE46CE6270C515400B9B38D /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE738E2709A510006B7EE3 /* University.swift */; };
-		AFE46CEE270C515800B9B38D /* UniversitiesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE73972709AFCB006B7EE3 /* UniversitiesAPI.swift */; };
-		AFE46CF6270C515C00B9B38D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE73A32709C3C7006B7EE3 /* UITableView+Extension.swift */; };
-		AFE46CFE270C516200B9B38D /* UniversityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE739D2709C101006B7EE3 /* UniversityCell.swift */; };
-		AFE46D0E270C516E00B9B38D /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE73A82709C5B8006B7EE3 /* ViewControllerViewModel.swift */; };
-		AFE46D12270C517200B9B38D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80AA4427087C9700842163 /* ViewController.swift */; };
-		AFE46D4D270C51EE00B9B38D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80AA5727087D2D00842163 /* API.swift */; };
-		AFE46D58270C51F100B9B38D /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1BC2E0270A0720009C5698 /* Response.swift */; };
-		AFE46D69270C51F800B9B38D /* HTTPClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1BC2E4270A278B009C5698 /* HTTPClientError.swift */; };
-		AFE46D71270C51FC00B9B38D /* APIDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1BC2DA2709E122009C5698 /* APIDataError.swift */; };
-		AFE46D79270C521000B9B38D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80AA5527087D1500842163 /* APIClient.swift */; };
 		AFE46D9D270C56CA00B9B38D /* UniversitiesAPI.json in Resources */ = {isa = PBXBuildFile; fileRef = AFE46C7D270C170D00B9B38D /* UniversitiesAPI.json */; };
 		AFE46DA2270C684D00B9B38D /* APIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE46C84270C3F4000B9B38D /* APIClientMock.swift */; };
 		AFE46DAA270C73EE00B9B38D /* TestAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE46DA9270C73EE00B9B38D /* TestAssignmentTests.swift */; };
@@ -64,6 +56,8 @@
 		27F9EF672C483D6500F6CAC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		27F9EF692C48435900F6CAC5 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		27F9EF6B2C48613D00F6CAC5 /* ApiEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEnvironment.swift; sourceTree = "<group>"; };
+		27F9EF742C4EBF9900F6CAC5 /* XCTestCase + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "XCTestCase + Extension.swift"; path = "TestAssignmentTests/XCTestCase + Extension.swift"; sourceTree = SOURCE_ROOT; };
+		27F9EF772C4EC7DB00F6CAC5 /* ViewControllerSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSnapshot.swift; sourceTree = "<group>"; };
 		51B18E02AAAFA9A8EAB1BF89 /* Pods-TestAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAssignment.release.xcconfig"; path = "Target Support Files/Pods-TestAssignment/Pods-TestAssignment.release.xcconfig"; sourceTree = "<group>"; };
 		866CC579060C7C3875E568BD /* Pods_TestAssignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestAssignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2440DE42ABC7665377B377D /* Pods-TestAssignmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAssignmentTests.debug.xcconfig"; path = "Target Support Files/Pods-TestAssignmentTests/Pods-TestAssignmentTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F9EF7D2C4EC84900F6CAC5 /* SnapshotTesting in Frameworks */,
+				27F9EF7B2C4EC84900F6CAC5 /* InlineSnapshotTesting in Frameworks */,
 				CD9B43AB5742BDBDE18CF90F /* Pods_TestAssignmentTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +116,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27F9EF762C4EC78100F6CAC5 /* Snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				27F9EF772C4EC7DB00F6CAC5 /* ViewControllerSnapshot.swift */,
+			);
+			path = Snapshots;
+			sourceTree = "<group>";
+		};
 		64A2EED18B9C13DB98F8E701 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				AFDE73C4270B0E07006B7EE3 /* ViewControllerTests.swift */,
+				27F9EF762C4EC78100F6CAC5 /* Snapshots */,
 				AFDE73BC270B0DCE006B7EE3 /* Info.plist */,
 			);
 			path = TestAssignmentUITests;
@@ -267,6 +272,7 @@
 		AFE46C97270C4D0000B9B38D /* TestAssignmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				27F9EF742C4EBF9900F6CAC5 /* XCTestCase + Extension.swift */,
 				AFE46C83270C3F1B00B9B38D /* Mocks */,
 				AFE46C7C270C170D00B9B38D /* JSONData */,
 				AFDE73BA270B0DCE006B7EE3 /* ViewControllerToViewModelTests.swift */,
@@ -314,6 +320,10 @@
 				AFE46C9C270C4D0000B9B38D /* PBXTargetDependency */,
 			);
 			name = TestAssignmentTests;
+			packageProductDependencies = (
+				27F9EF7A2C4EC84900F6CAC5 /* InlineSnapshotTesting */,
+				27F9EF7C2C4EC84900F6CAC5 /* SnapshotTesting */,
+			);
 			productName = TestAssignmentTests;
 			productReference = AFE46C96270C4D0000B9B38D /* TestAssignmentTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -345,6 +355,9 @@
 				Base,
 			);
 			mainGroup = AF80AA3427087C9700842163;
+			packageReferences = (
+				27F9EF792C4EC84900F6CAC5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = AF80AA3E27087C9700842163 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -467,10 +480,10 @@
 				27F9EF662C47053900F6CAC5 /* HTTPStatusCodeHandling.swift in Sources */,
 				AFDE739E2709C101006B7EE3 /* UniversityCell.swift in Sources */,
 				AF80AA4527087C9700842163 /* ViewController.swift in Sources */,
+				27F9EF732C4EAD7C00F6CAC5 /* Response.swift in Sources */,
 				AF1BC2DB2709E122009C5698 /* APIDataError.swift in Sources */,
 				AF80AA4127087C9700842163 /* AppDelegate.swift in Sources */,
 				27F9EF6A2C48435900F6CAC5 /* UIView+Extension.swift in Sources */,
-				AF1BC2E1270A0720009C5698 /* Response.swift in Sources */,
 				AFE46C6D270C07A800B9B38D /* StoryboardInstantiable+UIViewController.swift in Sources */,
 				AFDE73A42709C3C7006B7EE3 /* UITableView+Extension.swift in Sources */,
 				AFDE73A92709C5B8006B7EE3 /* ViewControllerViewModel.swift in Sources */,
@@ -479,8 +492,8 @@
 				AFDE738F2709A510006B7EE3 /* University.swift in Sources */,
 				27F9EF6C2C48613D00F6CAC5 /* ApiEnvironment.swift in Sources */,
 				27F9EF682C483D6500F6CAC5 /* BaseViewController.swift in Sources */,
-				AF80AA5627087D1500842163 /* APIClient.swift in Sources */,
-				AF80AA5827087D2D00842163 /* API.swift in Sources */,
+				27F9EF722C4EAD7300F6CAC5 /* API.swift in Sources */,
+				27F9EF702C4EAD2500F6CAC5 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,21 +501,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F9EF752C4EBF9900F6CAC5 /* XCTestCase + Extension.swift in Sources */,
+				27F9EF782C4EC7DB00F6CAC5 /* ViewControllerSnapshot.swift in Sources */,
 				AFE46DAA270C73EE00B9B38D /* TestAssignmentTests.swift in Sources */,
-				AFE46CF6270C515C00B9B38D /* UITableView+Extension.swift in Sources */,
 				AFE46DA2270C684D00B9B38D /* APIClientMock.swift in Sources */,
-				AFE46CEE270C515800B9B38D /* UniversitiesAPI.swift in Sources */,
 				AFE46CA3270C4D1E00B9B38D /* ViewControllerToViewModelTests.swift in Sources */,
-				AFE46D69270C51F800B9B38D /* HTTPClientError.swift in Sources */,
-				AFE46D12270C517200B9B38D /* ViewController.swift in Sources */,
-				AFE46D4D270C51EE00B9B38D /* API.swift in Sources */,
-				AFE46CE6270C515400B9B38D /* University.swift in Sources */,
-				AFE46D0E270C516E00B9B38D /* ViewControllerViewModel.swift in Sources */,
-				AFE46D79270C521000B9B38D /* APIClient.swift in Sources */,
-				AFE46D71270C51FC00B9B38D /* APIDataError.swift in Sources */,
-				AFE46D58270C51F100B9B38D /* Response.swift in Sources */,
-				AFE46CAD270C502F00B9B38D /* StoryboardInstantiable+UIViewController.swift in Sources */,
-				AFE46CFE270C516200B9B38D /* UniversityCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,6 +772,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		27F9EF792C4EC84900F6CAC5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.17.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		27F9EF7A2C4EC84900F6CAC5 /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27F9EF792C4EC84900F6CAC5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		27F9EF7C2C4EC84900F6CAC5 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27F9EF792C4EC84900F6CAC5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AF80AA3527087C9700842163 /* Project object */;
 }

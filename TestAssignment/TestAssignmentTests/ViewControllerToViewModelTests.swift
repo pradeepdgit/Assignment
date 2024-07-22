@@ -13,25 +13,49 @@ class ViewControllerToViewModelTests: XCTestCase {
     var viewModel: ViewControllerViewModel? = ViewControllerViewModel()
     
     func testfetchUniversities() {
-        viewModel?.fetchUniversities(apiClient: APIClientMock(jsonFileName: "UniversitiesAPI1", status: nil))
-        XCTAssertEqual(viewModel?.error.dataError, APIDataError.parsingError)
+        viewModel?.fetchUniversities(
+            apiClient: APIClientMock(jsonFileName: "UniversitiesAPI1", status: nil)
+        )
+        
+        testAfter(1.5, testCase: { [weak self] in
+            XCTAssertEqual(self?.viewModel?.error.dataError, APIDataError.parsingError)
+        })
         
         let numberOfRows = viewModel?.numberOfRows(section: 0)
         XCTAssertEqual(numberOfRows, 0)
         viewModel?.universities = nil
 
-        viewModel?.fetchUniversities(apiClient: APIClientMock(jsonFileName: "UniversitiesAPI2", status: nil))
-        XCTAssertEqual(viewModel?.error.clientError, APIClientError.badRequest)
+        viewModel?.fetchUniversities(
+            apiClient: APIClientMock(jsonFileName: "UniversitiesAPI2", status: nil)
+        )
+        
+        testAfter(1.5, testCase: { [weak self] in
+            XCTAssertEqual(self?.viewModel?.error.clientError, APIClientError.badRequest)
+        })
+        
         viewModel?.universities = nil
                 
-        viewModel?.fetchUniversities(apiClient: APIClientMock(jsonFileName: "UniversitiesAPI", status: APIClientError.badRequest))
+        viewModel?.fetchUniversities(
+            apiClient: APIClientMock(
+                jsonFileName: "UniversitiesAPI",
+                status: APIClientError.badRequest
+            )
+        )
         XCTAssertEqual(viewModel?.error.clientError, APIClientError.badRequest)
         viewModel?.universities = nil
     }
     
     func testFetchUniversity() {
-        viewModel?.fetchUniversities(apiClient: APIClientMock(jsonFileName: "UniversitiesAPI", status: APIClientError.success))
-        XCTAssertNotNil(viewModel?.universities)
+        viewModel?.fetchUniversities(
+            apiClient: APIClientMock(
+                jsonFileName: "UniversitiesAPI",
+                status: APIClientError.success
+            )
+        )
+        
+        testAfter(1.5, testCase: { [weak self] in
+            XCTAssertNotNil(self?.viewModel?.universities)
+        })
         
         let numberOfRows = viewModel?.numberOfRows(section: 0)
         XCTAssertEqual(numberOfRows, 344)
@@ -55,7 +79,12 @@ class ViewControllerToViewModelTests: XCTestCase {
             XCTAssertEqual(university?.name, "Middlesbrough College")
             XCTAssertEqual(university?.country, "United Kingdom")
         }
-        viewModel?.fetchUniversities(apiClient: APIClientMock(jsonFileName: "UniversitiesAPI", status: nil))
+        viewModel?.fetchUniversities(
+            apiClient: APIClientMock(
+                jsonFileName: "UniversitiesAPI",
+                status: nil
+            )
+        )
     }
     
     func testUpdateUI1() {
@@ -78,7 +107,9 @@ class ViewControllerToViewModelTests: XCTestCase {
         viewModel?.updateUI = { [weak self] in
             XCTAssertEqual(self?.viewModel?.error.clientError, APIClientError.badRequest)
         }
-        viewModel?.fetchUniversities(apiClient: APIClientMock(jsonFileName: "UniversitiesAPI2", status: nil))
+        viewModel?.fetchUniversities(
+            apiClient: APIClientMock(jsonFileName: "UniversitiesAPI2", status: nil)
+        )
     }
     
     override func tearDownWithError() throws {
@@ -87,3 +118,5 @@ class ViewControllerToViewModelTests: XCTestCase {
         self.viewModel = nil
     }
 }
+
+

@@ -1,6 +1,5 @@
 [
-    //{ adding this line to break parsing
-    "domains": [
+    "domains: [
       "arts.ac.uk"
     ],
     "name": "University of the Arts London",
