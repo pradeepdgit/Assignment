@@ -7,9 +7,6 @@
 
 import Foundation
 
-protocol APIResponseError {
-}
-
 enum APIDataError: Error {
     case parsingError
 }

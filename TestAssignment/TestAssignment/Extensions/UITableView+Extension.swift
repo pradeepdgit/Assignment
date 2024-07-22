@@ -8,33 +8,27 @@
 import Foundation
 import UIKit
 
-extension UITableViewCell: ReusableView {}
-
 extension UITableView {
-    func register<T: UITableViewCell> (cell: T.Type) {
-        let nib = UINib(nibName: T.nibName, bundle: nil)
-        register(nib, forCellReuseIdentifier: T.reuseIdentifier)
+    
+    // Register a UITableViewCell using its class name as the identifier
+    func register<T: UITableViewCell>(_: T.Type) {
+        let className = String(describing: T.self)
+        register(T.self, forCellReuseIdentifier: className)
     }
     
-    func dequeueReusableCell<T: UITableViewCell> (indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
-            fatalError("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
+    // Register a UITableViewCell using a nib file
+    func registerNib<T: UITableViewCell>(_: T.Type) {
+        let className = String(describing: T.self)
+        let nib = UINib(nibName: className, bundle: nil)
+        register(nib, forCellReuseIdentifier: className)
+    }
+    
+    // Dequeue a reusable UITableViewCell
+    func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
+        let className = String(describing: T.self)
+        guard let cell = dequeueReusableCell(withIdentifier: className, for: indexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(className)")
         }
-        
         return cell
-    }
-}
-
-// MARK: protocol extentions
-
-protocol ReusableView: AnyObject {}
-
-extension ReusableView where Self: UIView {
-    static var reuseIdentifier: String {
-        return String(describing: self)
-    }
-    
-    static var nibName: String {
-        return String(describing: self)
     }
 }

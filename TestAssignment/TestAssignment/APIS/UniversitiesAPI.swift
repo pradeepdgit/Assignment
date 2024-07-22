@@ -11,7 +11,6 @@ class UniversitiesAPI: API {
     
     var apiClient: APIClientSupporter
     var paramsAsData: Data?
-    var baseUrl: String = "http://universities.hipolabs.com"
     typealias ResponseObject = UniversitiesAPIResponse
     weak var dataRequest: TADataRequest?
     

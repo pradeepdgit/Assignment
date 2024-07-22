@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		27F9EF662C47053900F6CAC5 /* HTTPStatusCodeHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF652C47053900F6CAC5 /* HTTPStatusCodeHandling.swift */; };
+		27F9EF682C483D6500F6CAC5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF672C483D6500F6CAC5 /* BaseViewController.swift */; };
+		27F9EF6A2C48435900F6CAC5 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF692C48435900F6CAC5 /* UIView+Extension.swift */; };
+		27F9EF6C2C48613D00F6CAC5 /* ApiEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9EF6B2C48613D00F6CAC5 /* ApiEnvironment.swift */; };
 		54D983ED66DA2F48033D3602 /* Pods_TestAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866CC579060C7C3875E568BD /* Pods_TestAssignment.framework */; };
 		AF1BC2DB2709E122009C5698 /* APIDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1BC2DA2709E122009C5698 /* APIDataError.swift */; };
-		AF1BC2DD2709F770009C5698 /* UniversityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1BC2DC2709F770009C5698 /* UniversityCell.xib */; };
 		AF1BC2E1270A0720009C5698 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1BC2E0270A0720009C5698 /* Response.swift */; };
 		AF1BC2E5270A278B009C5698 /* HTTPClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1BC2E4270A278B009C5698 /* HTTPClientError.swift */; };
 		AF80AA4127087C9700842163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80AA4027087C9700842163 /* AppDelegate.swift */; };
@@ -33,7 +35,6 @@
 		AFE46CEE270C515800B9B38D /* UniversitiesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE73972709AFCB006B7EE3 /* UniversitiesAPI.swift */; };
 		AFE46CF6270C515C00B9B38D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE73A32709C3C7006B7EE3 /* UITableView+Extension.swift */; };
 		AFE46CFE270C516200B9B38D /* UniversityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE739D2709C101006B7EE3 /* UniversityCell.swift */; };
-		AFE46D06270C516900B9B38D /* UniversityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF1BC2DC2709F770009C5698 /* UniversityCell.xib */; };
 		AFE46D0E270C516E00B9B38D /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE73A82709C5B8006B7EE3 /* ViewControllerViewModel.swift */; };
 		AFE46D12270C517200B9B38D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80AA4427087C9700842163 /* ViewController.swift */; };
 		AFE46D4D270C51EE00B9B38D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF80AA5727087D2D00842163 /* API.swift */; };
@@ -60,11 +61,13 @@
 
 /* Begin PBXFileReference section */
 		27F9EF652C47053900F6CAC5 /* HTTPStatusCodeHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCodeHandling.swift; sourceTree = "<group>"; };
+		27F9EF672C483D6500F6CAC5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		27F9EF692C48435900F6CAC5 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		27F9EF6B2C48613D00F6CAC5 /* ApiEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEnvironment.swift; sourceTree = "<group>"; };
 		51B18E02AAAFA9A8EAB1BF89 /* Pods-TestAssignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAssignment.release.xcconfig"; path = "Target Support Files/Pods-TestAssignment/Pods-TestAssignment.release.xcconfig"; sourceTree = "<group>"; };
 		866CC579060C7C3875E568BD /* Pods_TestAssignment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestAssignment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2440DE42ABC7665377B377D /* Pods-TestAssignmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAssignmentTests.debug.xcconfig"; path = "Target Support Files/Pods-TestAssignmentTests/Pods-TestAssignmentTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF1BC2DA2709E122009C5698 /* APIDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataError.swift; sourceTree = "<group>"; };
-		AF1BC2DC2709F770009C5698 /* UniversityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UniversityCell.xib; sourceTree = "<group>"; };
 		AF1BC2E0270A0720009C5698 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		AF1BC2E4270A278B009C5698 /* HTTPClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientError.swift; sourceTree = "<group>"; };
 		AF80AA3D27087C9700842163 /* TestAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +167,7 @@
 				AF80AA4027087C9700842163 /* AppDelegate.swift */,
 				AF80AA4227087C9700842163 /* SceneDelegate.swift */,
 				AF80AA4427087C9700842163 /* ViewController.swift */,
+				27F9EF672C483D6500F6CAC5 /* BaseViewController.swift */,
 				AFDE73AC2709C5F3006B7EE3 /* ViewModle */,
 				AFDE739C2709C0E1006B7EE3 /* TableViewCells */,
 				AFDE73A22709C39B006B7EE3 /* Extensions */,
@@ -187,6 +191,7 @@
 				27F9EF652C47053900F6CAC5 /* HTTPStatusCodeHandling.swift */,
 				AF1BC2E4270A278B009C5698 /* HTTPClientError.swift */,
 				AF1BC2DA2709E122009C5698 /* APIDataError.swift */,
+				27F9EF6B2C48613D00F6CAC5 /* ApiEnvironment.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -211,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				AFDE739D2709C101006B7EE3 /* UniversityCell.swift */,
-				AF1BC2DC2709F770009C5698 /* UniversityCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -221,6 +225,7 @@
 			children = (
 				AFDE73A32709C3C7006B7EE3 /* UITableView+Extension.swift */,
 				AFE46C6C270C07A800B9B38D /* StoryboardInstantiable+UIViewController.swift */,
+				27F9EF692C48435900F6CAC5 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -356,7 +361,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF80AA4D27087C9D00842163 /* LaunchScreen.storyboard in Resources */,
-				AF1BC2DD2709F770009C5698 /* UniversityCell.xib in Resources */,
 				AF80AA4A27087C9D00842163 /* Assets.xcassets in Resources */,
 				AF80AA4827087C9700842163 /* Main.storyboard in Resources */,
 			);
@@ -366,7 +370,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFE46D06270C516900B9B38D /* UniversityCell.xib in Resources */,
 				AFE46DB0270C7C8D00B9B38D /* UniversitiesAPI1.json in Resources */,
 				AFE46D9D270C56CA00B9B38D /* UniversitiesAPI.json in Resources */,
 			);
@@ -466,6 +469,7 @@
 				AF80AA4527087C9700842163 /* ViewController.swift in Sources */,
 				AF1BC2DB2709E122009C5698 /* APIDataError.swift in Sources */,
 				AF80AA4127087C9700842163 /* AppDelegate.swift in Sources */,
+				27F9EF6A2C48435900F6CAC5 /* UIView+Extension.swift in Sources */,
 				AF1BC2E1270A0720009C5698 /* Response.swift in Sources */,
 				AFE46C6D270C07A800B9B38D /* StoryboardInstantiable+UIViewController.swift in Sources */,
 				AFDE73A42709C3C7006B7EE3 /* UITableView+Extension.swift in Sources */,
@@ -473,6 +477,8 @@
 				AF1BC2E5270A278B009C5698 /* HTTPClientError.swift in Sources */,
 				AF80AA4327087C9700842163 /* SceneDelegate.swift in Sources */,
 				AFDE738F2709A510006B7EE3 /* University.swift in Sources */,
+				27F9EF6C2C48613D00F6CAC5 /* ApiEnvironment.swift in Sources */,
+				27F9EF682C483D6500F6CAC5 /* BaseViewController.swift in Sources */,
 				AF80AA5627087D1500842163 /* APIClient.swift in Sources */,
 				AF80AA5827087D2D00842163 /* API.swift in Sources */,
 			);

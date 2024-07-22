@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, StoryboardInstantiable {
+class ViewController: BaseViewController, UITableViewDelegate, StoryboardInstantiable {
     
     var viewModel: ViewControllerViewModel!
-    @IBOutlet weak var ib_tblViewUniversities: UITableView!
+    var tableViewUniversities: UITableView!
 
     static func create(with viewModel: ViewControllerToViewModel) -> ViewController {
         let controller = ViewController.instantiateViewController()
@@ -20,12 +20,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Universities"
+        tableViewUniversities = UITableView()
                 
-        ib_tblViewUniversities.register(cell: UniversityCell.self)
-        ib_tblViewUniversities.delegate = self
-        ib_tblViewUniversities.dataSource = self
-        ib_tblViewUniversities.rowHeight = UITableView.automaticDimension;
-        ib_tblViewUniversities.estimatedRowHeight = 60.0;
+        tableViewUniversities.register(UniversityCell.self)
+        tableViewUniversities.delegate = self
+        tableViewUniversities.dataSource = self
+        tableViewUniversities.rowHeight = UITableView.automaticDimension;
+        tableViewUniversities.estimatedRowHeight = 100.0;
+        tableViewUniversities.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(tableViewUniversities)
+        
+        tableViewUniversities.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        tableViewUniversities.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        tableViewUniversities.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        tableViewUniversities.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
         setUpViewModel()
     }
@@ -38,13 +48,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             } else if self?.viewModel.error.dataError != nil {
                 //TODO: show error
             } else if self?.viewModel.universities != nil {
-                self?.ib_tblViewUniversities.reloadData()
+                self?.tableViewUniversities.reloadData()
             }
         }
         viewModel.fetchUniversities(apiClient: APIClient())
     }
-    
-    // MARK: - UITableViewDataSource
+}
+
+// MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel!.numberOfRows(section: section)
     }
@@ -58,11 +70,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func getUniversityCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(indexPath: indexPath) as UniversityCell
-        
+        let cell: UniversityCell = tableView.dequeueReusableCell(for: indexPath)
+
         if let university = viewModel!.fetchUniversity(index: indexPath.row) {
-            cell.ib_lblTitle.text = university.name
-            cell.ib_lblCountry.text = university.country
+            cell.lblTitle.text = university.name
+            cell.lblCountry.text = university.country
         }
         
         return cell

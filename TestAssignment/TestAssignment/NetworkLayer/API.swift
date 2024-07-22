@@ -8,6 +8,12 @@
 import Foundation
 import Alamofire
 
+#if DEBUG
+let environment = APIEnvironment.development
+#else
+let environment = APIEnvironment.production
+#endif
+
 typealias TAHTTPMethod = HTTPMethod // TA- TestAssignment
 typealias TAParameterEncoding = ParameterEncoding
 typealias TADataResponse = DataResponse
@@ -33,7 +39,7 @@ protocol API {
 
 extension API {
     
-    var baseUrl: String { return "" }
+    var baseUrl: String { return environment.baseURL() }
 //    public var jsonEncodingType: ParameterEncoding { return URLEncoding.httpBody }
     var jsonEncodingType: ParameterEncoding { return JSONEncoding.default }
     

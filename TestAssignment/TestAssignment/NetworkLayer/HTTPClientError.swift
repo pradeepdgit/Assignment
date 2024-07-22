@@ -11,11 +11,6 @@ enum APIClientError: Error {
     case badRequest
     case unauthorized
     case badGateway
-//    case emailUnverifiedOrBadUserID
-//    case pathnotFound
-//    case socialProfileMissingEmail
-//    case socialProfileConflictingEmail
-//    case badPasswordOrDuplicateEmail
     case serverError
     case serviceUnavailable
     case unknown
